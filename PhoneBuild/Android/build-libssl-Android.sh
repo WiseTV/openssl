@@ -16,7 +16,7 @@
 #  Change values here
 #
 
-VERSION="1.0.2a"
+VERSION="1_0_2a"
 export ANDROID_NDK_ROOT="/Users/mac/Development/android-ndk-r10b" 
 #
 ###########################################################################
@@ -42,11 +42,11 @@ fi
 set -e
 
 # Getting sources
-if [ ! -e openssl-${VERSION}.tar.gz ]; then
-  echo "Downloading openssl-${VERSION}.tar.gz"
-  curl https://www.openssl.org/source/openssl-${VERSION}.tar.gz -o openssl-${VERSION}.tar.gz
+if [ ! -e openssl_${VERSION}.tar.gz ]; then
+  echo "Downloading openssl_${VERSION}.tar.gz"
+  curl -o  openssl_${VERSION}.tar.gz https://codeload.github.com/WiseTV/openssl/tar.gz/OpenSSL_${VERSION}
 else
-  echo "Using openssl-${VERSION}.tar.gz"
+  echo "Using openssl_${VERSION}.tar.gz"
 fi
 
 # Getting setup android envitonment script
@@ -69,9 +69,9 @@ rm -rf install
 
 mkdir -p src
 
-tar zxf openssl-${VERSION}.tar.gz -C "./src"
+tar zxf openssl_${VERSION}.tar.gz -C "./src"
 
-pushd "${BASEDIR}/src/openssl-${VERSION}"
+pushd "${BASEDIR}/src/openssl-OpenSSL_${VERSION}"
 
 # Preparing sources
 perl -pi -e 's/install: all install_docs install_sw/install: install_sw/g' Makefile.org
