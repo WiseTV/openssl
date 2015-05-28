@@ -57,7 +57,7 @@ esac
 set -e
 if [ ! -e openssl_${VERSION}.tar.gz ]; then
 	echo "Downloading openssl_${VERSION}.tar.gz"
-    curl -o  openssl_${VERSION}.tar.gz https://codeload.github.com/WiseTV/openssl/tar.gz/OpenSSL_${VERSION}
+    curl -o openssl_${VERSION}.tar.gz https://codeload.github.com/WiseTV/openssl/tar.gz/OpenSSL_${VERSION}
 else
 	echo "Using openssl_${VERSION}.tar.gz"
 fi
